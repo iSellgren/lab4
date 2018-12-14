@@ -13,11 +13,14 @@
 #include <vector>
 #include "Email.hpp"
 #include <algorithm>
+#include "Sorting.hpp"
 class MailBox
 {
 public:
-    typedef std::vector<Email>::const_iterator const_iterator;
+    using const_iterator = std::vector<Email>::const_iterator;
+    //Returns const_iterator pointing to beginning of the vector.
     const_iterator begin() const {return Emails.begin();}
+    //Returns const_iterator pointing to end of the vector.
     const_iterator end() const {return Emails.end();}
     
     MailBox(size_t size = 0);
@@ -36,7 +39,6 @@ public:
     
     
 private:
-    
     std::vector<Email> Emails;
 };
 

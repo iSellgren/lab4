@@ -12,6 +12,7 @@ Email::Email(std::string who, std::string date, std::string subject)
 {
     
 }
+//Overload osteam oprerator for printing Emails.
 std::ostream& operator<<(std::ostream& ostr, const Email& Emails)
 {
     ostr << Emails.who << " " << Emails.date << " " << Emails.subject;

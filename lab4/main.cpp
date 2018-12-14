@@ -13,9 +13,13 @@
 #include "MailBox.hpp"
 #include "Email.hpp"
 template <class T>
-void Show(const T& show)
+void Show(const T& mailBox)
 {
-    std::cout << show << "\n";
+    std::for_each(mailBox.begin(), mailBox.end(),[](const auto&value)
+        {
+            std::cout << value << '\n';
+        });
+    
 }
 
 int main() {
@@ -23,19 +27,17 @@ int main() {
     Email e2("Olle","2018-11-11","Svar");
     Email e3("Anna","2019-09-10","Jobb");
     Email e4("Olle","2018-11-11","Svar");
+    mailBox[1] = {"Adam","2017-06-09","Lön"};
     
-    mailBox.WriteMail({"Fredrik","2018-10-12","Tenta"});
-    mailBox.WriteMail(e2);
-    mailBox.WriteMail(e3);
-    mailBox.WriteMail(e4);
+    mailBox.add({"Fredrik","2018-10-12","Tenta"});
+    mailBox.add(e2);
+    mailBox.add(e3);
+    mailBox.add(e4);
     mailBox.SortWho();
     mailBox.ReadMail(3);
+    std::cout << "----------------" << "\n";
     
-    std::for_each(mailBox.begin(), mailBox.end(),[](const auto&value)
-    {
-        Show(value);
-    });
-//    Show(*mailBox.begin());
+    Show(mailBox);
     
     return 0;
 }

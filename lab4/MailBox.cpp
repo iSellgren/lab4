@@ -25,8 +25,7 @@ void MailBox::SortSubject()
 {
     std::sort(Emails.begin(), Emails.end(), CompSubjectWhoDate());
 }
-
-void MailBox::WriteMail(const Email& Email)
+void MailBox::add(const Email& Email)
 {
     Emails.push_back(Email);
 }
@@ -38,7 +37,8 @@ Email& MailBox::operator[](size_t index)
 {
     return Emails[index];
 }
+//Read Email on specific index
 void MailBox::ReadMail(size_t index)
 {
-    std::cout << Emails[index];
+    std::cout << Emails[index] << '\n';
 }
